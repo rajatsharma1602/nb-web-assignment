@@ -1,0 +1,37 @@
+<div>
+  <form (submit)="search()">
+  <input type="text" placeholder="Enter movie name" name="movieName" [(ngModel)]="searchMovie">
+  <input type="number" placeholder="year" name="year" [(ngModel)]="inYear">
+  <button>Search</button>
+</form>
+</div>
+<div class="col-12" *ngIf="movies">
+  <div class="row">
+    <div class="col-6">
+      <div class="movie" *ngFor="let movie of movies;let i=index;">
+        <a (click)="getDetails(i)">
+          {{movie.Title}}
+        </a>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="row">
+          <div class="movie-detail text-center" *ngIf="detail">
+            <img src="{{detail.Poster}}" alt="detail.Title" width="90%" height="500px">
+            <h3> {{detail.Title}} </h3>
+            <p><b>Actors:</b> {{detail.Actors}}</p>
+            <p><b>Awards:</b> {{detail.Awards}} </p>
+            <p><b>Directed by:</b> {{detail.Director}} </p>
+            <p><b>Produced by:</b> {{detail.Production}} </p>
+            <p><b>Box Office:</b> {{detail.BoxOffice}} </p>
+            <p><b>Writer(s):</b> {{Writer}} </p>
+            <p><b>Released In:</b> {{detail.Year}} </p>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col-12 error" *ngIf="!movies">
+  Error: {{error}}
+  <p>Please try again!</p>
+</div>

@@ -1,0 +1,9 @@
+.movie {
+    border:1px solid #c0c0c0;
+    border-radius: 8px;
+    padding: 5px;
+    margin: 5px;
+    &-detail {
+        width: 100%;
+    }
+}
